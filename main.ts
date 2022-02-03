@@ -24,6 +24,9 @@ function Servo_Forward () {
     pins.servoSetPulse(AnalogPin.P13, 1700)
     control.waitMicros(20000)
 }
+input.onButtonPressed(Button.B, function () {
+    Servo_Forward()
+})
 function Servo_Left () {
     pins.servoSetPulse(AnalogPin.P8, 1700)
     pins.servoSetPulse(AnalogPin.P13, 1700)
@@ -34,7 +37,7 @@ function Servo_Stop () {
     pins.servoSetPulse(AnalogPin.P13, 0)
     control.waitMicros(20000)
 }
-let distance = 15
+let distance = 10
 basic.showIcon(IconNames.Chessboard)
 basic.forever(function () {
     pins.digitalWritePin(DigitalPin.P1, 0)
